@@ -29,5 +29,9 @@ const connect = () => {
 app.use('/api/signUp',signUprouter);
 app.use('/api/signIn',signInrouter);
 
+app.get("/", function (req, res) {
+    res.send("server is running!!!");
+  });
+
 app.listen(process.env.PORT  || 3015);
 connect();
