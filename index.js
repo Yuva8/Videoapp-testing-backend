@@ -25,7 +25,6 @@ const connect = () => {
 }
 
 
-
 app.use('/api/signUp',signUprouter);
 app.use('/api/signIn',signInrouter);
 
@@ -34,4 +33,5 @@ app.get("/", function (req, res) {
   });
 
 app.listen(process.env.PORT  || 3015);
+console.log('server is running on port ' + process.env.PORT);
 connect();
