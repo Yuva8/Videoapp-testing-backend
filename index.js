@@ -3,6 +3,8 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const signUprouter = require('./routes/signUp.js');
 const signInrouter = require('./routes/signIn.js');
+const upload = require('./routes/upload.js');
+const checkAuth = require('./middleware/check-auth.js');
 
 
 const morgan = require('morgan');
@@ -32,9 +34,10 @@ app.use(morgan('dev'));
 app.use(cors());
 
 
-
+app.use('/api/videos',express.static('./media/uploads'));
 app.use('/api/signUp',signUprouter);
 app.use('/api/signIn',signInrouter);
+app.use('/api/upload',checkAuth,upload);
 
 
 app.get("/", function (req, res) {
